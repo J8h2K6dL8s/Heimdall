@@ -18,6 +18,6 @@ class Produit extends Model
 
     public function categorie()
     {
-        return $this->belongsTo(Categorie::class, 'categorie_id');
+        return $this->belongsTo(Categorie::class, 'categorie_id', 'id');
     }
 }

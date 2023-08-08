@@ -134,28 +134,19 @@ class produitController extends Controller
         }
     }
 
-    // public function afficherProduit($id)
-    // {
-    //     $produit = Produit::find($id);
-
-    //     if ($produit) {
-    //         if ($produit->categorie) {
-    //             $categorie = $produit->categorie;
-    //             return $categorie->name;
-    //         } else {
-    //             return "Le produit n'est associé à aucune catégorie.";
-    //         }
-    //     } else {
-    //         return "Le produit avec l'ID spécifié n'existe pas.";
-    //     }
-    // }
-
-    public function indexe()
+    public function liste_produits_par_categorie($idCategorie)
     {
-        // Récupérer toutes les catégories avec leurs produits associés
-        $categories = Categorie::with('produits')->get();
+        $categorie = Categorie::find($idCategorie);
+ 
+        $produits = $categorie->produits()->get();
+        $produits ;
+        
+        return response()->json($produits);
 
-        return response()->json(['categories' => $categories], 200);
+        // foreach($produits as $produit){
+        //     echo $produit->nom.",";
+        // }
     }
+
 }
 

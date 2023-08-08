@@ -53,11 +53,16 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 });
 
-Route::middleware(['auth:sanctum'])->group(function () { 
+// Route::middleware(['auth:sanctum'])->group(function () { 
 
-    Route::get('/liste-produits-par-categorie', [produitController::class, 'indexe']);
+//     Route::get('/liste-produits-par-categorie', [produitController::class, 'indexe']);
 
-});
+// });
+
+Route::get('/{idCategorie}/produits', [produitController::class, 'liste_produits_par_categorie']);
+
+
+
 
 
 
